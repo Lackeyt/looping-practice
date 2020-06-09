@@ -1,0 +1,11 @@
+div.output {
+  display: none;
+}
+
+div.answerSuccess {
+  display: none;
+}
+
+div.answerFail {
+  display: none;
+}
