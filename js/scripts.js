@@ -2,18 +2,21 @@ $(document).ready(function(){
   $("#wordPuzzle").submit(function(event){
     event.preventDefault()
 
-    const input = $("input#q1").val();
-    let splitString = input.split("");
-
-//Checks if inputted character is a vowel, returns Boolean
-    function isVowel( chr ){ 
-      return 'aeiou'.indexOf( chr[0].toLowerCase() ) !== -1;
-    };
-
+    const input = $("input#q1").val(); //User input
+    let splitString = input.split(""); //splits user input into an array of characters
+    
 //Replaces Vowels with "-" in a string, returns String
     function vowelReplace(splitString){
+      let vowels = ["a","e","i","o","u"];
       for(i=0;i <splitString.length; i++){
-        if (isVowel(splitString[i])){
+        let vowelMatch = false
+        for(v=0; v <vowels.length; v++){  
+          if (vowels[v] === splitString[i]){
+            vowelMatch = true;
+            break;
+          };
+        };
+        if (vowelMatch){
           splitString[i] = "-";
         };
       };
